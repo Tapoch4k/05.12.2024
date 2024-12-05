@@ -1,0 +1,180 @@
+/* Общие стили для страницы */
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJvUWffMehxeR4tfJaDNCofPAQty2WXV5DKQ&s') no-repeat center center fixed; /* Укажите путь к изображению */
+    background-size: cover; /* Масштабирование изображения под экран */
+    color: #fff; /* Цвет текста для контраста */
+}
+
+/* Остальные стили остаются без изменений */
+.calendar {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr); /* 6 колонок */
+    grid-template-rows: repeat(5, 1fr);    /* 5 рядов */
+    gap: 10px;
+    width: 80%;
+    max-width: 750px;
+    margin: auto;
+    background-color: rgba(163, 163, 163, 0.8); /* Полупрозрачный фон для контраста с фоном страницы */
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Все остальные стили остаются такими же */
+
+
+/* Style dla pól kalendarza */
+.day {
+    background-color: #ff6b6b;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    position: relative;
+    height: 150px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+/* Powiększanie i zmiana koloru tła po najechaniu */
+.day:hover {
+    transform: scale(1.1);
+    background-color: #ff4757;
+}
+
+/* Kontener dla numeru dnia i ukrytej zawartości */
+.content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* Styl dla numeru dnia */
+.day-number {
+    font-size: 3rem;
+    z-index: 2;
+    opacity: 1;
+    transition: opacity 0.1s ease; /* Płynne zanikanie */
+}
+
+/* Ukryta zawartość, która pojawia się po najechaniu */
+.hidden-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.1rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 8px;
+}
+
+/* Po najechaniu na .day, ukryta zawartość staje się widoczna, a numer znika */
+.day:hover .day-number {
+    opacity: 0; /* Ukrycie numeru */
+}
+
+.day:hover .hidden-content {
+    opacity: 1; /* Wyświetlenie ukrytej zawartości */
+}
+
+/* Dla urządzeń mobilnych */
+@media (max-width: 768px) {
+    .calendar {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+/* Эффект снега */
+@keyframes snow {
+    0% {
+        transform: translateY(-10px);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
+}
+
+.snowflake {
+    position: absolute;
+    top: -10px;
+    font-size: 1rem;
+    color: #fff;
+    animation: snow linear infinite;
+    opacity: 0.8;
+}
+
+/* Различные размеры снежинок */
+.snowflake:nth-child(1) {
+    left: 5%;
+    animation-duration: 10s;
+    font-size: 1.2rem;
+}
+
+.snowflake:nth-child(2) {
+    left: 15%;
+    animation-duration: 8s;
+    font-size: 0.8rem;
+}
+
+.snowflake:nth-child(3) {
+    left: 25%;
+    animation-duration: 12s;
+    font-size: 1.5rem;
+}
+
+.snowflake:nth-child(4) {
+    left: 35%;
+    animation-duration: 9s;
+    font-size: 0.9rem;
+}
+
+.snowflake:nth-child(5) {
+    left: 50%;
+    animation-duration: 14s;
+    font-size: 1.3rem;
+}
+
+.snowflake:nth-child(6) {
+    left: 65%;
+    animation-duration: 11s;
+    font-size: 1rem;
+}
+
+.snowflake:nth-child(7) {
+    left: 75%;
+    animation-duration: 10s;
+    font-size: 1.4rem;
+}
+
+.snowflake:nth-child(8) {
+    left: 85%;
+    animation-duration: 7s;
+    font-size: 1.1rem;
+}
+
+.snowflake:nth-child(9) {
+    left: 90%;
+    animation-duration: 13s;
+    font-size: 1rem;
+}
